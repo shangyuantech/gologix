@@ -159,11 +159,11 @@ func (client *Client) KeepAlive() {
 		return
 	}
 
-	err = client.ListAllTags(0)
-	if err != nil {
-		client.Logger.Error("keepalive list tags failed", slog.Any("err", err))
-		return
-	}
+	//err = client.ListAllTags(0)
+	//if err != nil {
+	//	client.Logger.Error("keepalive list tags failed", slog.Any("err", err))
+	//	return
+	//}
 
 	t := time.NewTicker(client.KeepAliveFrequency)
 	defer t.Stop()
@@ -187,11 +187,11 @@ func (client *Client) KeepAlive() {
 					slog.Any("originalProps", originalProps),
 					slog.Any("newProps", newProps),
 				)
-				err := client.ListAllTags(0)
-				if err != nil {
-					client.Logger.Warn("keepalive list tags failed.", "error", err)
-					return
-				}
+				//err := client.ListAllTags(0)
+				//if err != nil {
+				//	client.Logger.Warn("keepalive list tags failed.", "error", err)
+				//	return
+				//}
 				originalProps = newProps
 			}
 
